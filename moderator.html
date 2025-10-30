@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moderator — Dynamite Building</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module">
+        import { supabase } from './auth.js';
+        (async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: { redirectTo: location.href, queryParams: { prompt: 'select_account' } }
+                });
+                return;
+            }
+            const roles = session.user?.app_metadata?.roles ?? [];
+            const ok = roles.includes('admin') || roles.includes('moderator');
+            if (!ok) {
+                alert('Moderators/Admins only');
+                location.replace('index.html');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html#top"><span class="brand-accent">DYNAMITE</span><span class="brand-rest">BUILDING</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="#" data-authed-only onclick="import('./auth.js').then(m=>m.supabaseAuth.logout())">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <h1>Moderator Panel</h1>
+            <p><u><b>THIS ROLE IS COMMING SOON...</b></u></p>
+            <p>Accessible to <strong>moderator</strong> and <strong>admin</strong> roles.</p><br><br>
+            <span class="muted">Under development</span>
+            <p><i><u>COMMING SOON...</u></i></p>
+        <button class="btn btn-primary" onclick="window.location.href='index.html'">Back Home</button>
+        </div>
+        
+    </main>
+</body>
+</html>
+
+

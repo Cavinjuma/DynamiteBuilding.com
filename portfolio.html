@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Dynamite Building</title>
+    <meta name="description" content="A curated look at Dynamite Building projects across residential, commercial and renovation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html#top">
+                <span class="brand-accent">DYNAMITE</span>
+                <span class="brand-rest">BUILDING</span>
+            </a>
+            <nav aria-label="Primary">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+                <ul id="nav-menu" class="nav-list">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a class="phone" href="tel:+44 7902 754465"><span>+44 7902 754465</span></a>
+                <a class="btn btn-primary" href="index.html#contact">Get Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container center">
+                <h1>Project Portfolio</h1>
+                <p class="muted">Explore a selection of our recent residential, commercial, and renovation projects.</p>
+            </div>
+        </section>
+         <!-- Hero Slider -->
+         <section class="hero hero-slider" aria-label="Highlights">
+            <video class="hero-video" autoplay muted loop playsinline preload="auto">
+                <source src="Dynamite-ad.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay">
+                <div class="container hero-content">
+                    <h1>YOUR DREAM HOUSE</h1>
+                    <p>All building work extensions, Renovations, Construction, Kitchens, Bathrooms, Landscaping?</p>
+                    <p>Welcome to <strong class="highlight">Dynamite Building</strong></p>
+                    <div class="actions">
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                        <a href="portfolio.html" class="btn btn-ghost">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+            <h1>My Portfolio</h1>
+            <div id="portfolio-gallery" class="gallery-layout">
+                </div>
+            <script src="path/to/the/script.js"></script>
+        
+
+        <section class="section">
+            <div class="container">
+                <div class="gallery" id="gallery">
+                    <!-- Images: ensure these files exist in the project root or adjust paths -->
+                    <a href="construct1.jpeg" class="g-item"><img src="construct1.jpeg" alt="Construction project 1" loading="lazy"></a>
+                    <a href="construct2.jpeg" class="g-item"><img src="construct2.jpeg" alt="Construction project 2" loading="lazy"></a>
+                    <a href="construct3.jpeg" class="g-item"><img src="construct3.jpeg" alt="Construction project 3" loading="lazy"></a>
+                    <a href="im2.jpg" class="g-item"><img src="im2.jpg" alt="Project image 2" loading="lazy"></a>
+                    <a href="im3.jpg" class="g-item"><img src="im3.jpg" alt="Project image 3" loading="lazy"></a>
+                    <a href="im4.jpg" class="g-item"><img src="im4.jpg" alt="Project image 4" loading="lazy"></a>
+                    <a href="im5.jpg" class="g-item"><img src="im5.jpg" alt="Project image 5" loading="lazy"></a>
+                    <a href="im6.jpg" class="g-item"><img src="im6.jpg" alt="Project image 6" loading="lazy"></a>
+                    <a href="im7.jpg" class="g-item"><img src="im7.jpg" alt="Project image 7" loading="lazy"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" aria-label="Close">×</button>
+        <button class="lb-prev" aria-label="Previous">‹</button>
+        <figure class="lb-figure">
+            <img class="lb-image" alt="Expanded project image" />
+            <figcaption class="lb-caption"></figcaption>
+        </figure>
+        <button class="lb-next" aria-label="Next">›</button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand" href="index.html#top"><span class="brand-accent">DYNAMITE</span><span class="brand-rest">BUILDING</span></a>
+                <p class="muted">We bring visions to life through quality construction and craftsmanship.</p>
+            </div>
+            <nav class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bar">
+            <div class="container small">
+                <p>© <span id="year"></span> Dynamite Building.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const portfolioContainer = document.getElementById('portfolio-gallery'); 
+    
+    // 1. Retrieve the stored items from localStorage
+    const storedItems = localStorage.getItem('portfolioItems');
+    
+    if (storedItems) {
+        const items = JSON.parse(storedItems);
+        
+        // 2. Loop through all the stored items
+        items.forEach(item => {
+            // 3. Create HTML elements to display the item
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'portfolio-item'; // Use your CSS class names
+            
+            const img = document.createElement('img');
+            img.src = item.url;
+            img.alt = item.title;
+            img.style.width = '100%'; // Example style
+            
+            const title = document.createElement('h3');
+            title.textContent = item.title;
+            
+            // 4. Append the new elements to the container
+            itemDiv.appendChild(img);
+            itemDiv.appendChild(title);
+            portfolioContainer.appendChild(itemDiv);
+        });
+    } else {
+        // Display a message if no items are found
+        portfolioContainer.innerHTML = '<p>No portfolio items have been added yet.</p>';
+    }
+    });
+    </script>
+    <script src="script.js" defer></script>
+    <script src="portfolio.js" defer></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
+
+
