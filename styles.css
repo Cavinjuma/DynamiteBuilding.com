@@ -139,6 +139,28 @@ input:focus,select:focus,textarea:focus{outline:none;box-shadow:var(--ring);bord
 .lb-next{right:14px}
 .lb-prev:hover,.lb-next:hover,.lb-close:hover{background:rgba(255,255,255,.18)}
 
+/* Testimonial profile pictures */
+.quote-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.profile-pic {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--brand);
+}
+
+.quote .quote-icon {
+    color: var(--brand);
+    font-size: 24px;
+    margin-right: 8px;
+}
+
 /* Responsive */
 @media (max-width: 1040px){
   .grid-2{grid-template-columns:1fr}
